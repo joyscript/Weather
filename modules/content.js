@@ -1,7 +1,7 @@
-import { getDate } from "./helpers.js";
+import { getDate } from './helpers.js';
 
-export const getTodayContent = () => {
-  const {day, weekday, hours, minutes} = getDate();
+const getTodayContent = () => {
+  const { day, weekday, hours, minutes } = getDate();
 
   return `
     <div class="widget__today">
@@ -26,7 +26,7 @@ export const getTodayContent = () => {
   `;
 };
 
-export const getOtherContent = () => {
+const getOtherContent = () => {
   return `
     <div class="widget__other">
       <div class="widget__wind">
@@ -48,7 +48,7 @@ export const getOtherContent = () => {
   `;
 };
 
-export const getForecast = () => {
+const getForecast = () => {
   return `
     <ul class="widget__forecast">
       <li class="widget__day-item">
@@ -78,4 +78,10 @@ export const getForecast = () => {
       </li>
     </ul>
   `;
+};
+
+export const renderContent = (widget) => {
+  [getTodayContent(), getOtherContent(), getForecast()].forEach((content) => {
+    widget.insertAdjacentHTML('beforeend', content);
+  });
 };

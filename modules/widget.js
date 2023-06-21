@@ -1,13 +1,9 @@
-import { getTodayContent, getOtherContent, getForecast } from './content.js';
+import { renderContent } from './content.js';
 
 const createWidget = () => {
   const widget = document.createElement('div');
   widget.className = 'widget';
-
-  [getTodayContent(), getOtherContent(), getForecast()].forEach((content) => {
-    widget.insertAdjacentHTML('beforeend', content);
-  });
-
+  renderContent(widget);
   return widget;
 };
 
