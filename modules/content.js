@@ -1,13 +1,13 @@
 import { getDate } from './helpers.js';
 
 const getTodayContent = () => {
-  const { day, weekday, hours, minutes } = getDate();
+  const { day, weekday, time } = getDate();
 
   return `
     <div class="widget__today">
       <div class="widget__date-block">
         <p class="widget__date">${day}</p>
-        <p class="widget__time">${hours}:${minutes}</p>
+        <p class="widget__time">${time}</p>
         <p class="widget__day">${weekday}</p>
       </div>
       <div class="widget__icon">
